@@ -17,11 +17,13 @@ class LiveSession extends Model
         'youtube_video_id',
         'is_active',
         'scheduled_at',
+        'ended_at',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
         'scheduled_at' => 'datetime',
+        'ended_at' => 'datetime',
     ];
 
     /**

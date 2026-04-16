@@ -7,20 +7,22 @@ use App\Repositories\SettingRepository;
 class SettingService
 {
     /**
-     * The setting repository instance.
+     * The live session service instance.
      *
-     * @var SettingRepository
+     * @var LiveSessionService
      */
-    protected $settingRepository;
+    protected $liveSessionService;
 
     /**
      * SettingService constructor.
      *
      * @param SettingRepository $settingRepository
+     * @param LiveSessionService $liveSessionService
      */
-    public function __construct(SettingRepository $settingRepository)
+    public function __construct(SettingRepository $settingRepository, LiveSessionService $liveSessionService)
     {
         $this->settingRepository = $settingRepository;
+        $this->liveSessionService = $liveSessionService;
     }
 
     /**
@@ -35,9 +37,25 @@ class SettingService
     /**
      * Update multiple settings.
      */
-    public function updateSettings(array $settings)
+    public function updateSettings(array $settings, int $adminId)
     {
+        $youtubeVideoId = $settings['current_youtube_video_id'] ?? $this->getYouTubeVideoId();
+
         foreach ($settings as $key => $value) {
+            // Check if we are changing the active status
+            if ($key === 'active_class_status') {
+                $currentValue = $this->isClassActive();
+                $newValue = filter_var($value, FILTER_VALIDATE_BOOLEAN);
+
+                if ($currentValue !== $newValue) {
+                    if ($newValue) {
+                        $this->liveSessionService->startNewSession($adminId, $youtubeVideoId);
+                    } else {
+                        $this->liveSessionService->closeActiveSessions();
+                    }
+                }
+            }
+
             $this->settingRepository->set($key, $value);
         }
     }

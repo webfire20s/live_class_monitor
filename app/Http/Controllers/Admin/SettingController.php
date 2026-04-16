@@ -48,10 +48,10 @@ class SettingController extends Controller
             'active_class_status' => 'required|in:true,false',
         ]);
 
-        $this->settingService->updateSettings($request->only([
-            'current_youtube_video_id',
-            'active_class_status'
-        ]));
+        $this->settingService->updateSettings(
+            $request->only(['current_youtube_video_id', 'active_class_status']),
+            \Illuminate\Support\Facades\Auth::guard('admin')->id()
+        );
 
         return redirect()->route('admin.settings')
             ->with('success', 'Settings updated successfully.');
