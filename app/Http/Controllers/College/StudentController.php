@@ -157,6 +157,25 @@ class StudentController extends Controller
     }
 
     /**
+     * Approve the specified student.
+     */
+    public function approve($id)
+    {
+        $collegeId = Auth::guard('college')->id();
+        $student = $this->studentService->findStudent($id);
+
+        if (!$student || $student->college_id !== $collegeId) {
+            return redirect()->route('college.students.index')
+                ->with('error', 'Student not found or unauthorized access.');
+        }
+
+        $student->update(['is_approved' => true]);
+
+        return redirect()->route('college.students.index')
+            ->with('success', 'Student approved successfully.');
+    }
+
+    /**
      * Remove the specified student from storage.
      */
     public function destroy($id)

@@ -18,8 +18,8 @@
     @endif
 
     <div class="form-group">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus>
+        <label for="username" class="form-label">Username</label>
+        <input type="text" id="username" name="username" class="form-control" value="{{ old('username') }}" required autofocus>
     </div>
 
     <div class="form-group">
@@ -37,5 +37,13 @@
     <button type="submit" class="btn-primary">
         Sign In
     </button>
+
+    <div class="auth-links">
+        <p>Don't have an account? <a href="{{ route('college.register') }}">Register College</a></p>
+        <a href="{{ url('/') }}" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Return to Portal
+        </a>
+    </div>
 </form>
 @endsection

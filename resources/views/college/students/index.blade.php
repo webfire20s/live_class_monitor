@@ -67,7 +67,7 @@
                 <th>Student ID</th>
                 <th>Full Name</th>
                 <th>Email Address</th>
-                <th>Registered On</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -77,8 +77,18 @@
                 <td><code>{{ $student->student_unique_id }}</code></td>
                 <td style="font-weight: 500;">{{ $student->name }}</td>
                 <td>{{ $student->email }}</td>
-                <td>{{ $student->created_at->format('d M, Y') }}</td>
+                <td>
+                    <span class="status-badge {{ $student->is_approved ? 'status-active' : 'status-inactive' }}" style="padding: 2px 8px; border-radius: 9999px; font-size: 12px; font-weight: 500; {{ $student->is_approved ? 'background-color: #def7ec; color: #03543f;' : 'background-color: #fde2e1; color: #9b1c1c;' }}">
+                        {{ $student->is_approved ? 'Approved' : 'Pending' }}
+                    </span>
+                </td>
                 <td class="actions">
+                    @if(!$student->is_approved)
+                        <form action="{{ route('college.students.approve', $student->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary" style="padding: 4px 8px; font-size: 13px;">Approve</button>
+                        </form>
+                    @endif
                     <a href="{{ route('college.students.edit', $student->id) }}" class="btn btn-outline" style="padding: 4px 8px;">Edit</a>
                     <form action="{{ route('college.students.destroy', $student->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this student?')">
                         @csrf

@@ -88,6 +88,18 @@ class CollegeController extends Controller
     }
 
     /**
+     * Approve the specified college.
+     */
+    public function approve($id)
+    {
+        $college = $this->collegeService->findCollege($id);
+        $college->update(['is_active' => true]);
+
+        return redirect()->route('admin.colleges.index')
+            ->with('success', 'College approved successfully.');
+    }
+
+    /**
      * Remove the specified college from storage.
      */
     public function destroy($id)

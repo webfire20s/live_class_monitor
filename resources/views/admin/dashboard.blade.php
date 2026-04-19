@@ -25,6 +25,12 @@
         <h3 style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Active Live Sessions</h3>
         <p style="font-size: 32px; font-weight: 700; color: var(--success-color);">{{ $stats['active_sessions'] }}</p>
     </div>
+
+    <!-- Active Viewers -->
+    <div class="card" style="border-left: 4px solid #ef4444;">
+        <h3 style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Active Viewers</h3>
+        <p style="font-size: 32px; font-weight: 700; color: #ef4444;">{{ $stats['active_viewers'] }}</p>
+    </div>
 </div>
 
 <div class="card" style="margin-top: 32px;">

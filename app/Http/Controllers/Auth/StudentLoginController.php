@@ -27,6 +27,14 @@ class StudentLoginController extends Controller
             'password' => ['required'],
         ]);
 
+        $student = \App\Models\Student::where('student_unique_id', $request->student_unique_id)->first();
+
+        if ($student && !$student->is_approved) {
+            throw ValidationException::withMessages([
+                'student_unique_id' => ['Your account is pending approval by your college.'],
+            ]);
+        }
+
         if (Auth::guard('student')->attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
 

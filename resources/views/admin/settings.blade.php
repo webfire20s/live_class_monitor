@@ -15,6 +15,16 @@
             <label for="current_youtube_video_id" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px;">Current YouTube Video ID</label>
             <input type="text" id="current_youtube_video_id" name="current_youtube_video_id" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;" value="{{ old('current_youtube_video_id', $settings['current_youtube_video_id']) }}" placeholder="e.g. dQw4w9WgXcQ">
             <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">This ID will be used for the live class stream.</p>
+            
+            <div style="margin-top: 12px; padding: 12px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;">
+                <h4 style="font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #475569;">How to find your YouTube Video ID:</h4>
+                <ul style="margin: 0; padding-left: 16px; font-size: 12px; color: #64748b; line-height: 1.5;">
+                    <li>Go to your YouTube Live Stream or Video.</li>
+                    <li>Look at the URL in your browser.</li>
+                    <li>If the URL is <code>https://www.youtube.com/watch?v=<strong>dQw4w9WgXcQ</strong></code>, the ID is the bold part after <code>v=</code>.</li>
+                    <li>If the URL is <code>https://youtu.be/<strong>dQw4w9WgXcQ</strong></code>, the ID is the part after the slash.</li>
+                </ul>
+            </div>
         </div>
 
         <div style="margin-bottom: 32px;">

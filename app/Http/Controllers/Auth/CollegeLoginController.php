@@ -22,10 +22,24 @@ class CollegeLoginController extends Controller
      */
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
+        $request->validate([
+            'username' => ['required', 'string'],
             'password' => ['required'],
         ]);
+
+        $credentials = [
+            'username' => $request->username,
+            'password' => $request->password,
+        ];
+
+        // First attempt to find the college to check if it's active
+        $college = \App\Models\College::where('username', $request->username)->first();
+
+        if ($college && !$college->is_active) {
+            throw ValidationException::withMessages([
+                'username' => ['Your account is pending approval by the main administrator.'],
+            ]);
+        }
 
         if (Auth::guard('college')->attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
@@ -34,7 +48,7 @@ class CollegeLoginController extends Controller
         }
 
         throw ValidationException::withMessages([
-            'email' => [trans('auth.failed')],
+            'username' => [trans('auth.failed')],
         ]);
     }
 

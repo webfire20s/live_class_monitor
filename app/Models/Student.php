@@ -16,9 +16,13 @@ class Student extends Authenticatable
         'college_id',
         'student_unique_id',
         'name',
+        'father_name',
+        'mother_name',
+        'class_name',
         'email',
         'phone',
         'password',
+        'is_approved',
     ];
 
     protected $hidden = [
@@ -28,6 +32,7 @@ class Student extends Authenticatable
 
     protected $casts = [
         'password' => 'hashed',
+        'is_approved' => 'boolean',
     ];
 
     /**

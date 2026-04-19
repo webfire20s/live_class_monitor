@@ -13,6 +13,9 @@ class College extends Authenticatable
 
     protected $fillable = [
         'name',
+        'address',
+        'contact_number',
+        'username',
         'college_code',
         'email',
         'password',

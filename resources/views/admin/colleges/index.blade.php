@@ -71,6 +71,12 @@
                     </span>
                 </td>
                 <td class="actions">
+                    @if(!$college->is_active)
+                        <form action="{{ route('admin.colleges.approve', $college->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary" style="padding: 4px 8px; font-size: 13px;">Approve</button>
+                        </form>
+                    @endif
                     <a href="{{ route('admin.colleges.edit', $college->id) }}" class="btn btn-outline" style="padding: 4px 8px;">Edit</a>
                     <form action="{{ route('admin.colleges.destroy', $college->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this college?')">
                         @csrf
