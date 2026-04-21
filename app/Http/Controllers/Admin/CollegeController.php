@@ -50,6 +50,7 @@ class CollegeController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'college_code' => 'nullable|string|max:50|unique:colleges,college_code',
+            'username' => 'nullable|string|max:50|unique:colleges,username',
             'email' => 'required|email|max:255|unique:colleges,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
@@ -77,6 +78,7 @@ class CollegeController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'college_code' => 'required|string|max:50|unique:colleges,college_code,' . $id,
+            'username' => 'required|string|max:50|unique:colleges,username,' . $id,
             'email' => 'required|email|max:255|unique:colleges,email,' . $id,
             'password' => 'nullable|string|min:8|confirmed',
         ]);

@@ -42,6 +42,10 @@ class CollegeService
             $data['college_code'] = $this->generateUniqueCode($data['name']);
         }
 
+        if (empty($data['username'])) {
+            $data['username'] = explode('@', $data['email'])[0] . rand(10, 99);
+        }
+
         $data['password'] = Hash::make($data['password']);
 
         return $this->collegeRepository->create($data);

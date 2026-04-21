@@ -9,12 +9,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <style>
             :root {
-                --bg-color: #0b0f19;
+                --bg-color: #020617;
                 --card-bg: rgba(255, 255, 255, 0.03);
                 --card-border: rgba(255, 255, 255, 0.08);
-                --primary: #6366f1;
-                --primary-glow: rgba(99, 102, 241, 0.5);
-                --secondary: #8b5cf6;
+                --primary: #06b6d4;
+                --primary-glow: rgba(6, 182, 212, 0.4);
+                --secondary: #10b981;
                 --text-main: #f8fafc;
                 --text-muted: #94a3b8;
             }
@@ -175,7 +175,7 @@
             .card-icon {
                 width: 48px;
                 height: 48px;
-                background: rgba(99, 102, 241, 0.1);
+                background: rgba(6, 182, 212, 0.1);
                 border-radius: 12px;
                 display: flex;
                 align-items: center;
@@ -271,10 +271,11 @@
         <div class="container">
             <div class="header">
                 <div class="logo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <img src="{{ url('assets/images/logo.png') }}" height="66px">
+                    <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14v-4z"></path>
                         <rect x="3" y="6" width="12" height="12" rx="2" ry="2"></rect>
-                    </svg>
+                    </svg> -->
                 </div>
                 <h1>Live Class Monitor</h1>
                 <p class="subtitle">Experience next-generation attendance tracking and seamless live class monitoring designed for modern educational institutions.</p>

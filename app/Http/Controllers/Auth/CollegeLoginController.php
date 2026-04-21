@@ -27,13 +27,15 @@ class CollegeLoginController extends Controller
             'password' => ['required'],
         ]);
 
+        $loginField = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        
         $credentials = [
-            'username' => $request->username,
+            $loginField => $request->username,
             'password' => $request->password,
         ];
-
+        
         // First attempt to find the college to check if it's active
-        $college = \App\Models\College::where('username', $request->username)->first();
+        $college = \App\Models\College::where($loginField, $request->username)->first();
 
         if ($college && !$college->is_active) {
             throw ValidationException::withMessages([

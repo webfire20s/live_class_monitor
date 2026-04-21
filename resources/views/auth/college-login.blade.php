@@ -18,7 +18,7 @@
     @endif
 
     <div class="form-group">
-        <label for="username" class="form-label">Username</label>
+        <label for="username" class="form-label">Username or Email</label>
         <input type="text" id="username" name="username" class="form-control" value="{{ old('username') }}" required autofocus>
     </div>
 

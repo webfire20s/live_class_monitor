@@ -66,7 +66,7 @@
             <tr>
                 <th>Student ID</th>
                 <th>Full Name</th>
-                <th>Email Address</th>
+                <!-- <th>Email Address</th> -->
                 <th>Status</th>
                 <th>Actions</th>
             </tr>
@@ -76,7 +76,7 @@
             <tr>
                 <td><code>{{ $student->student_unique_id }}</code></td>
                 <td style="font-weight: 500;">{{ $student->name }}</td>
-                <td>{{ $student->email }}</td>
+                <!-- <td>{{ $student->email }}</td> -->
                 <td>
                     <span class="status-badge {{ $student->is_approved ? 'status-active' : 'status-inactive' }}" style="padding: 2px 8px; border-radius: 9999px; font-size: 12px; font-weight: 500; {{ $student->is_approved ? 'background-color: #def7ec; color: #03543f;' : 'background-color: #fde2e1; color: #9b1c1c;' }}">
                         {{ $student->is_approved ? 'Approved' : 'Pending' }}

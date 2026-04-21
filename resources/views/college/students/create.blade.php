@@ -33,10 +33,10 @@
             <input type="text" id="name" name="name" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;" value="{{ old('name') }}" required>
         </div>
 
-        <div style="margin-bottom: 20px;">
+        <!-- <div style="margin-bottom: 20px;">
             <label for="email" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px;">Email Address (Optional)</label>
             <input type="email" id="email" name="email" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;" value="{{ old('email') }}">
-        </div>
+        </div> -->
 
         <div style="margin-bottom: 20px;">
             <label for="phone" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px;">Phone Number (Optional)</label>

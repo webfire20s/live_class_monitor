@@ -34,6 +34,12 @@
         </div>
 
         <div style="margin-bottom: 20px;">
+            <label for="username" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px;">Login Username (Optional)</label>
+            <input type="text" id="username" name="username" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;" value="{{ old('username') }}" placeholder="Leave blank to generate from email">
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Used for college login. If blank, it will be generated from the email.</p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
             <label for="email" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px;">Email Address</label>
             <input type="email" id="email" name="email" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;" value="{{ old('email') }}" required>
         </div>

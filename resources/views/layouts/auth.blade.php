@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0b0f19;
+            --bg-color: #020617;
             --card-bg: rgba(255, 255, 255, 0.03);
             --card-border: rgba(255, 255, 255, 0.08);
-            --primary: #6366f1;
-            --primary-glow: rgba(99, 102, 241, 0.5);
-            --secondary: #8b5cf6;
+            --primary: #06b6d4;
+            --primary-glow: rgba(6, 182, 212, 0.4);
+            --secondary: #10b981;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --error-color: #f87171;
@@ -129,7 +129,7 @@
             outline: none;
             border-color: var(--primary);
             background: rgba(0, 0, 0, 0.3);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
         }
 
         select.form-control {
@@ -178,7 +178,7 @@
         .auth-links { text-align: center; margin-top: 24px; }
         .auth-links p { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; }
         .auth-links a { color: var(--primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-        .auth-links a:hover { color: #a5b4fc; }
+        .auth-links a:hover { color: #67e8f9; }
         
         .back-link {
             display: inline-flex; align-items: center; gap: 6px;
